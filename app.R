@@ -73,134 +73,135 @@ pal_for <- function(metric, values) {
   colorNumeric(ramp, rng, na.color = "#E4E9F2")
 }
 
-FAVICON <- "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%231F1A38'/><circle cx='16' cy='16' r='7' fill='%2321918C'/></svg>"
+FAVICON <- "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%23000000'/><circle cx='16' cy='16' r='7' fill='%23EBBC40'/></svg>"
 
 empty_map <- function(msg = "Nothing to show for this selection") leaflet() %>%
   addProviderTiles(providers$Esri.WorldGrayCanvas) %>% setView(35, 2, 4) %>%
-  addControl(html = paste0("<div style='font-family:DM Sans;background:#fff;border:1px solid #E8ECF2;border-radius:10px;padding:10px 14px;color:#6B7A99;font-size:13px;box-shadow:0 2px 10px rgba(0,0,0,.06)'>", msg, "</div>"), position = "topright")
+  addControl(html = paste0("<div style='font-family:Lato;background:#fff;border:1px solid #E5E5E5;border-radius:10px;padding:10px 14px;color:#555555;font-size:13px;box-shadow:0 2px 10px rgba(0,0,0,.06)'>", msg, "</div>"), position = "topright")
 
 # ---------------- CSS ----------------
 custom_css <- "
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');
-*{box-sizing:border-box}body,.content-wrapper,.wrapper{font-family:'DM Sans',sans-serif !important;background:#F4F3F8 !important}
-.main-sidebar{background:#1F1A38 !important;width:230px !important}
-.sidebar-menu>li>a{color:#9BA8C7 !important;font-size:13px !important;padding:11px 16px !important;border-radius:9px !important;margin:3px 10px !important}
-.sidebar-menu>li>a:hover{background:#2C2552 !important;color:#fff !important}
-.sidebar-menu>li.active>a{background:linear-gradient(90deg,#21918C,#2FB8B0) !important;color:#fff !important;font-weight:600 !important}
-.main-header .navbar,.main-header .logo{background:#1F1A38 !important;border:none !important}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+*{box-sizing:border-box}body,.content-wrapper,.wrapper{font-family:Lato,sans-serif !important;background:#F3F3F3 !important}
+.main-sidebar{background:#000000 !important;width:230px !important}
+.sidebar-menu>li>a{color:#BDBDBD !important;font-size:13px !important;padding:11px 16px !important;border-radius:9px !important;margin:3px 10px !important}
+.sidebar-menu>li>a:hover{background:#212121 !important;color:#fff !important}
+.sidebar-menu>li.active>a{background:#EBBC40 !important;color:#000 !important;font-weight:700 !important;border-left-color:#EBBC40 !important}
+.main-header .navbar,.main-header .logo{background:#000000 !important;border:none !important}
 .main-header .logo{width:230px !important}.main-header .navbar{margin-left:230px !important}
-.navbar-nav>li>a,.navbar .sidebar-toggle{color:#9BA8C7 !important}
+.navbar-nav>li>a,.navbar .sidebar-toggle{color:#BDBDBD !important}
 .content-wrapper{margin-left:230px !important}.content{padding:20px !important}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .anim{animation:fadeUp .55s cubic-bezier(.2,.7,.2,1) both}
-.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#171331 0%,#2C2552 55%,#3A2F63 100%);border-radius:18px;padding:28px 32px;margin-bottom:16px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.hero::after{content:'';position:absolute;right:-60px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(47,184,176,.35),rgba(47,184,176,0) 70%)}
-.hero .kick{color:#57C9BE;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:9px}
-.hero h1{font-family:'DM Serif Display',serif;font-size:30px;margin:0 0 8px;line-height:1.05}
-.hero .sub{color:#AEB9D6;font-size:14px;max-width:600px;line-height:1.45}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#000000 0%,#212121 55%,#2E2E2E 100%);border-radius:18px;padding:28px 32px;margin-bottom:16px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.hero::after{content:'';position:absolute;right:-60px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(235,188,64,.35),rgba(235,188,64,0) 70%)}
+.hero .kick{color:#EBBC40;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:9px}
+.hero h1{font-family:Lato,sans-serif;font-size:30px;margin:0 0 8px;line-height:1.05}
+.hero .sub{color:#C7C7C7;font-size:14px;max-width:600px;line-height:1.45}
 .hero-stat{position:relative;z-index:1;text-align:right;flex:none;min-width:150px}
 .hero-stat .n{font-size:54px;font-weight:800;line-height:1;color:#fff}
-.hero-stat .l{font-size:11px;color:#9BA8C7;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
-.hero-stat .sn{font-size:14px;color:#CBD5F0;margin-top:10px}.hero-stat .sn b{color:#fff}
+.hero-stat .l{font-size:11px;color:#BDBDBD;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.hero-stat .sn{font-size:14px;color:#DDDDDD;margin-top:10px}.hero-stat .sn b{color:#fff}
 .kpi-row{display:flex;gap:14px;margin-bottom:16px;flex-wrap:wrap}
-.kpi-card{flex:1;min-width:170px;background:#fff;border:1px solid #E8ECF2;border-radius:16px;padding:16px 18px;position:relative;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:.2s}
+.kpi-card{flex:1;min-width:170px;background:#fff;border:1px solid #E5E5E5;border-radius:16px;padding:16px 18px;position:relative;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:.2s}
 .kpi-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.09)}
 .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .kpi-card.red::before{background:linear-gradient(90deg,#B10026,#F1605D)}.kpi-card.amber::before{background:linear-gradient(90deg,#E3611C,#D98A00)}
-.kpi-card.green::before{background:linear-gradient(90deg,#1F8A7E,#2A9D8F)}.kpi-card.blue::before{background:linear-gradient(90deg,#3B3585,#2FB8B0)}
-.kpi-icon{font-size:16px;margin-bottom:8px}.kpi-card.red .kpi-icon{color:#F1605D}.kpi-card.amber .kpi-icon{color:#E3611C}.kpi-card.green .kpi-icon{color:#2A9D8F}.kpi-card.blue .kpi-icon{color:#2FB8B0}
-.kpi-value{font-size:24px;font-weight:800;color:#1A1F36;line-height:1.05;margin-bottom:4px}
-.kpi-label{font-size:11px;font-weight:600;color:#9BA3B8;text-transform:uppercase;letter-spacing:.05em}
+.kpi-card.green::before{background:linear-gradient(90deg,#B69337,#EBBC40)}.kpi-card.blue::before{background:linear-gradient(90deg,#000000,#555555)}
+.kpi-icon{font-size:16px;margin-bottom:8px}.kpi-card.red .kpi-icon{color:#F1605D}.kpi-card.amber .kpi-icon{color:#E3611C}.kpi-card.green .kpi-icon{color:#B69337}.kpi-card.blue .kpi-icon{color:#000}
+.kpi-value{font-size:24px;font-weight:800;color:#212121;line-height:1.05;margin-bottom:4px}
+.kpi-label{font-size:11px;font-weight:600;color:#8A8A8A;text-transform:uppercase;letter-spacing:.05em}
 .kpi-delta{font-size:11.5px;font-weight:700;margin-top:6px}
-.dash-panel{background:#fff;border:1px solid #E8ECF2;border-radius:16px;padding:18px 20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-.panel-title{font-size:12px;font-weight:600;color:#9BA3B8;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.panel-title::before{content:'';width:3px;height:13px;background:#21918C;border-radius:2px}
-.panel-title .pt-help{margin-left:auto;color:#C7D0E4;font-size:12px;cursor:help;border:1px solid #E1E6F0;border-radius:50%;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center}
-.section-header h2{font-family:'DM Serif Display',serif;font-size:23px;color:#1A1F36;margin:0 0 4px;font-weight:400}.section-header p{font-size:13px;color:#9BA3B8;margin:0 0 16px}
-.newsflash{display:flex;align-items:center;gap:14px;background:#1F1A38;border-radius:14px;padding:11px 18px;margin-bottom:16px;overflow:hidden}
+.dash-panel{background:#fff;border:1px solid #E5E5E5;border-radius:16px;padding:18px 20px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.panel-title{font-size:12px;font-weight:600;color:#8A8A8A;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.panel-title::before{content:'';width:3px;height:13px;background:#EBBC40;border-radius:2px}
+.panel-title .pt-help{margin-left:auto;color:#C7C7C7;font-size:12px;cursor:help;border:1px solid #DDDDDD;border-radius:50%;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center}
+.section-header h2{font-family:Lato,sans-serif;font-size:23px;color:#212121;margin:0 0 4px;font-weight:700}.section-header p{font-size:13px;color:#8A8A8A;margin:0 0 16px}
+.newsflash{display:flex;align-items:center;gap:14px;background:#000000;border-radius:14px;padding:11px 18px;margin-bottom:16px;overflow:hidden}
 .nf-tag{display:flex;align-items:center;gap:7px;flex:none;color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#B10026;padding:5px 11px;border-radius:20px}
 .nf-dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:pulse 1.1s infinite}@keyframes pulse{0%{opacity:.3}50%{opacity:1}100%{opacity:.3}}
 .ticker-wrap{flex:1;overflow:hidden;white-space:nowrap}.ticker{display:inline-block;padding-left:100%;animation:scroll 34s linear infinite;color:#E7ECF7;font-size:13.5px}
-.ticker b{color:#FFD166}.ticker .sep{color:#21918C;margin:0 18px}@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-.spotlight{background:linear-gradient(135deg,#1F1A38,#33285C);border-radius:16px;padding:20px;color:#fff;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.spot-kick{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#57C9BE;margin-bottom:10px}
-.rd-name{font-family:'DM Serif Display',serif;font-size:22px;margin:0}.rd-country{font-size:12px;color:#9BA8C7;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+.ticker b{color:#FFD166}.ticker .sep{color:#EBBC40;margin:0 18px}@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.spotlight{background:linear-gradient(135deg,#000000,#212121);border-radius:16px;padding:20px;color:#fff;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.spot-kick{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EBBC40;margin-bottom:10px}
+.rd-name{font-family:Lato,sans-serif;font-size:22px;margin:0}.rd-country{font-size:12px;color:#BDBDBD;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
 .rd-grid{display:flex;gap:10px;flex-wrap:wrap}.rd-stat{flex:1;min-width:70px;background:rgba(255,255,255,.06);border-radius:10px;padding:10px 12px}
-.rd-stat .v{font-size:19px;font-weight:700}.rd-stat .l{font-size:10px;color:#9BA8C7;text-transform:uppercase}
-.region-detail{background:linear-gradient(135deg,#1F1A38,#2C2552);border-radius:16px;padding:20px;color:#fff;margin-bottom:16px}
+.rd-stat .v{font-size:19px;font-weight:700}.rd-stat .l{font-size:10px;color:#BDBDBD;text-transform:uppercase}
+.region-detail{background:linear-gradient(135deg,#000000,#212121);border-radius:16px;padding:20px;color:#fff;margin-bottom:16px}
 .tier-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase}
 .tier-Critical{background:#FBE0E3;color:#B10026}.tier-High{background:#FBEADD;color:#C4501A}.tier-Moderate{background:#FAF0D6;color:#B57400}.tier-Low{background:#E1EFF1;color:#2F7C88}
 .metric-toggle{display:flex;gap:7px;flex-wrap:wrap}
-.metric-btn{padding:6px 13px;border-radius:20px;font-size:12px;font-weight:500;border:1.5px solid #E8ECF2;background:#fff;color:#6B7A99;cursor:pointer}
-.metric-btn:hover{border-color:#21918C;color:#21918C}.metric-btn.active{background:#21918C;border-color:#21918C;color:#fff}
-.year-caption{font-size:13px;color:#374151;background:#ECF5F4;border-radius:10px;padding:9px 14px;margin-bottom:10px}.year-caption b{color:#1A1F36}
-.app-footer{margin-top:8px;padding:16px 4px 6px;color:#9BA3B8;font-size:11.5px;line-height:1.5;border-top:1px solid #E8ECF2}.app-footer b{color:#6B7A99}
-.tierbar{display:flex;height:36px;border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 1px #E8ECF2}
+.metric-btn{padding:6px 13px;border-radius:20px;font-size:12px;font-weight:500;border:1.5px solid #E5E5E5;background:#fff;color:#555555;cursor:pointer}
+.metric-btn:hover{border-color:#EBBC40;color:#000}.metric-btn.active{background:#EBBC40;border-color:#EBBC40;color:#000;font-weight:700}
+.year-caption{font-size:13px;color:#333333;background:#FBF3DC;border-radius:10px;padding:9px 14px;margin-bottom:10px}.year-caption b{color:#212121}
+.app-footer{margin-top:8px;padding:16px 4px 6px;color:#8A8A8A;font-size:11.5px;line-height:1.5;border-top:1px solid #E5E5E5}.app-footer b{color:#555555}
+.tierbar{display:flex;height:36px;border-radius:10px;overflow:hidden;box-shadow:inset 0 0 0 1px #E5E5E5}
 .tierseg{display:flex;align-items:center;justify-content:center;color:#fff;font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;animation:growseg .9s cubic-bezier(.2,.7,.2,1) both}
 @keyframes growseg{from{flex-basis:0 !important}}
 .tierleg{display:flex;gap:18px;flex-wrap:wrap;margin-top:13px}
-.tierleg .li{display:flex;align-items:center;gap:7px;font-size:12px;color:#6B7A99;font-weight:600}
+.tierleg .li{display:flex;align-items:center;gap:7px;font-size:12px;color:#555555;font-weight:600}
 .tierleg .dot{width:11px;height:11px;border-radius:3px}
 table.dataTable{font-size:13px !important}
-table.dataTable thead th{font-size:11px !important;font-weight:600 !important;text-transform:uppercase !important;color:#9BA3B8 !important;background:#F8FAFD !important}
-::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-thumb{background:#C7D0E4;border-radius:4px}
-.irs-bar,.irs-bar-edge,.irs-single,.irs-handle>i:first-child{background:#21918C !important;border-color:#21918C !important}
-.btn-export{background:#fff;border:1.5px solid #E8ECF2;color:#21918C;border-radius:20px;font-size:12px;font-weight:600;padding:6px 14px;margin-right:6px}
-.about-hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#171331,#2C2552 60%,#3A2F63);border-radius:18px;padding:28px 32px;color:#fff;margin-bottom:16px}
-.about-hero::after{content:'';position:absolute;right:-50px;bottom:-80px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(47,184,176,.32),rgba(47,184,176,0) 70%)}
-.about-hero .kick{color:#57C9BE;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:9px}
-.about-hero h2{font-family:'DM Serif Display',serif;font-size:28px;margin:0 0 8px;color:#fff;position:relative;z-index:1}
-.about-hero p{color:#CBD5F0;font-size:15px;max-width:720px;line-height:1.5;margin:0;position:relative;z-index:1}
+table.dataTable thead th{font-size:11px !important;font-weight:600 !important;text-transform:uppercase !important;color:#8A8A8A !important;background:#F7F7F7 !important}
+::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-thumb{background:#C7C7C7;border-radius:4px}
+.irs-bar,.irs-bar-edge,.irs-single,.irs-handle>i:first-child{background:#EBBC40 !important;border-color:#EBBC40 !important;color:#000 !important}
+.btn-export{background:#fff;border:1.5px solid #E5E5E5;color:#000;border-radius:20px;font-size:12px;font-weight:600;padding:6px 14px;margin-right:6px}
+.btn-export:hover{background:#EBBC40;border-color:#EBBC40;color:#000}
+.about-hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#000000,#212121 60%,#2E2E2E);border-radius:18px;padding:28px 32px;color:#fff;margin-bottom:16px}
+.about-hero::after{content:'';position:absolute;right:-50px;bottom:-80px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(235,188,64,.32),rgba(235,188,64,0) 70%)}
+.about-hero .kick{color:#EBBC40;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:9px}
+.about-hero h2{font-family:Lato,sans-serif;font-size:28px;margin:0 0 8px;color:#fff;position:relative;z-index:1}
+.about-hero p{color:#DDDDDD;font-size:15px;max-width:720px;line-height:1.5;margin:0;position:relative;z-index:1}
 .concept{display:flex;gap:14px;flex-wrap:wrap}
-.concept .c{flex:1;min-width:210px;background:#fff;border:1px solid #E8ECF2;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:.2s}
+.concept .c{flex:1;min-width:210px;background:#fff;border:1px solid #E5E5E5;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:.2s}
 .concept .c:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.10)}
 .icirc{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:19px;margin-bottom:13px}
-.concept .c h4{font-size:16px;color:#1A1F36;margin:0 0 6px;font-weight:700}
-.concept .c p{font-size:13px;color:#6B7A99;line-height:1.5;margin:0}
+.concept .c h4{font-size:16px;color:#212121;margin:0 0 6px;font-weight:700}
+.concept .c p{font-size:13px;color:#555555;line-height:1.5;margin:0}
 .flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;padding:4px 0}
-.flow .node{background:#F4F3F8;border:1px solid #E8ECF2;border-radius:12px;padding:12px 18px;font-weight:700;color:#1A1F36;font-size:13.5px;text-align:center}
-.flow .op{font-size:20px;color:#9BA3B8;font-weight:700}.flow .arrow{color:#21918C;font-size:20px;font-weight:700}
+.flow .node{background:#F3F3F3;border:1px solid #E5E5E5;border-radius:12px;padding:12px 18px;font-weight:700;color:#212121;font-size:13.5px;text-align:center}
+.flow .op{font-size:20px;color:#8A8A8A;font-weight:700}.flow .arrow{color:#EBBC40;font-size:20px;font-weight:700}
 .levels{display:flex;gap:12px;flex-wrap:wrap}
 .levels .lv{flex:1;min-width:160px;border-radius:14px;padding:16px 18px;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.06)}
 .levels .lv h5{margin:0 0 4px;font-size:15px;font-weight:800}.levels .lv p{margin:0;font-size:12px;opacity:.93;line-height:1.4}
 .glossary{display:grid;grid-template-columns:1fr 1fr;gap:2px 26px}
-.glossary .g{display:flex;gap:11px;align-items:baseline;padding:10px 0;border-bottom:1px solid #F1F4FA}
-.glossary .g .k{font-weight:700;color:#1A1F36;font-size:13px;min-width:118px;flex:none}
-.glossary .g .d{color:#6B7A99;font-size:12.5px;line-height:1.4}
+.glossary .g{display:flex;gap:11px;align-items:baseline;padding:10px 0;border-bottom:1px solid #F0F0F0}
+.glossary .g .k{font-weight:700;color:#212121;font-size:13px;min-width:118px;flex:none}
+.glossary .g .d{color:#555555;font-size:12.5px;line-height:1.4}
 @media(max-width:820px){.glossary{grid-template-columns:1fr}}
 .levels .lv-range{font-size:12px;font-weight:700;opacity:.92;margin:3px 0 5px;letter-spacing:.02em}
-.callout{background:linear-gradient(135deg,#1F1A38,#2C2552);color:#fff;border-radius:16px;padding:18px 22px;margin-bottom:16px;font-size:16px;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.callout b{color:#57C9BE}
+.callout{background:linear-gradient(135deg,#000000,#212121);color:#fff;border-radius:16px;padding:18px 22px;margin-bottom:16px;font-size:16px;line-height:1.5;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.callout b{color:#EBBC40}
 .pt-help{position:relative}
-.pt-help::after{content:attr(data-tip);position:absolute;bottom:135%;right:0;transform:translateY(4px);background:#1F1A38;color:#fff;font-size:11.5px;font-weight:500;line-height:1.45;padding:9px 12px;border-radius:9px;width:230px;text-align:left;box-shadow:0 8px 22px rgba(20,20,40,.22);opacity:0;pointer-events:none;transition:opacity .15s ease,transform .15s ease;z-index:30}
-.pt-help::before{content:'';position:absolute;bottom:100%;right:4px;border:5px solid transparent;border-top-color:#1F1A38;opacity:0;transition:opacity .15s ease;z-index:30}
+.pt-help::after{content:attr(data-tip);position:absolute;bottom:135%;right:0;transform:translateY(4px);background:#000000;color:#fff;font-size:11.5px;font-weight:500;line-height:1.45;padding:9px 12px;border-radius:9px;width:230px;text-align:left;box-shadow:0 8px 22px rgba(20,20,40,.22);opacity:0;pointer-events:none;transition:opacity .15s ease,transform .15s ease;z-index:30}
+.pt-help::before{content:'';position:absolute;bottom:100%;right:4px;border:5px solid transparent;border-top-color:#000000;opacity:0;transition:opacity .15s ease;z-index:30}
 .pt-help:hover::after,.pt-help:focus::after{opacity:1;transform:translateY(0)}
 .pt-help:hover::before,.pt-help:focus::before{opacity:1}
-.bootstrap-select>.dropdown-toggle{border:1.5px solid #E8ECF2 !important;border-radius:10px !important;background:#fff !important;color:#1A1F36 !important;font-size:13px !important;font-weight:500 !important;box-shadow:none !important;height:38px !important}
-.bootstrap-select>.dropdown-toggle:hover,.bootstrap-select>.dropdown-toggle:focus{border-color:#21918C !important;outline:none !important;box-shadow:0 0 0 3px rgba(33,145,140,.12) !important}
-.bootstrap-select .dropdown-toggle .filter-option{color:#1A1F36 !important}
-.bootstrap-select .dropdown-menu{border:1px solid #E8ECF2 !important;border-radius:12px !important;box-shadow:0 10px 30px rgba(20,20,40,.12) !important;padding:6px !important;margin-top:6px !important}
-.bootstrap-select .dropdown-menu li a{border-radius:8px !important;font-size:13px !important;color:#374151 !important;padding:8px 12px !important}
-.bootstrap-select .dropdown-menu li a:hover,.bootstrap-select .dropdown-menu>li:hover a{background:#EDF7F6 !important;color:#21918C !important}
-.bootstrap-select .dropdown-menu li.selected a,.bootstrap-select .dropdown-menu>.active>a{background:#21918C !important;color:#fff !important}
-.bootstrap-select .bs-searchbox input{border:1px solid #E8ECF2 !important;border-radius:8px !important;font-size:12.5px !important;box-shadow:none !important}
-.bootstrap-select .bs-searchbox input:focus{border-color:#21918C !important;outline:none !important}
-.dataTables_wrapper .dataTables_filter input{border:1.5px solid #E8ECF2 !important;border-radius:10px !important;padding:6px 12px !important;font-size:13px !important;margin-left:8px !important;box-shadow:none !important}
-.dataTables_wrapper .dataTables_filter input:focus{border-color:#21918C !important;outline:none !important;box-shadow:0 0 0 3px rgba(33,145,140,.12) !important}
+.bootstrap-select>.dropdown-toggle{border:1.5px solid #E5E5E5 !important;border-radius:10px !important;background:#fff !important;color:#212121 !important;font-size:13px !important;font-weight:500 !important;box-shadow:none !important;height:38px !important}
+.bootstrap-select>.dropdown-toggle:hover,.bootstrap-select>.dropdown-toggle:focus{border-color:#EBBC40 !important;outline:none !important;box-shadow:0 0 0 3px rgba(235,188,64,.12) !important}
+.bootstrap-select .dropdown-toggle .filter-option{color:#212121 !important}
+.bootstrap-select .dropdown-menu{border:1px solid #E5E5E5 !important;border-radius:12px !important;box-shadow:0 10px 30px rgba(20,20,40,.12) !important;padding:6px !important;margin-top:6px !important}
+.bootstrap-select .dropdown-menu li a{border-radius:8px !important;font-size:13px !important;color:#333333 !important;padding:8px 12px !important}
+.bootstrap-select .dropdown-menu li a:hover,.bootstrap-select .dropdown-menu>li:hover a{background:#FBF3DC !important;color:#000 !important}
+.bootstrap-select .dropdown-menu li.selected a,.bootstrap-select .dropdown-menu>.active>a{background:#EBBC40 !important;color:#000 !important}
+.bootstrap-select .bs-searchbox input{border:1px solid #E5E5E5 !important;border-radius:8px !important;font-size:12.5px !important;box-shadow:none !important}
+.bootstrap-select .bs-searchbox input:focus{border-color:#EBBC40 !important;outline:none !important}
+.dataTables_wrapper .dataTables_filter input{border:1.5px solid #E5E5E5 !important;border-radius:10px !important;padding:6px 12px !important;font-size:13px !important;margin-left:8px !important;box-shadow:none !important}
+.dataTables_wrapper .dataTables_filter input:focus{border-color:#EBBC40 !important;outline:none !important;box-shadow:0 0 0 3px rgba(235,188,64,.12) !important}
 .dataTables_wrapper .dataTables_paginate{padding-top:14px !important}
-.dataTables_wrapper .dataTables_paginate .paginate_button{border-radius:8px !important;margin:0 2px !important;padding:5px 11px !important;color:#6B7A99 !important;border:1px solid transparent !important}
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover{background:#EDF7F6 !important;color:#21918C !important;border-color:#EDF7F6 !important}
-.dataTables_wrapper .dataTables_paginate .paginate_button.current,.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{background:#21918C !important;color:#fff !important;border-color:#21918C !important}
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover{color:#D5DAE6 !important;background:transparent !important;border-color:transparent !important;cursor:default !important}
+.dataTables_wrapper .dataTables_paginate .paginate_button{border-radius:8px !important;margin:0 2px !important;padding:5px 11px !important;color:#555555 !important;border:1px solid transparent !important}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{background:#FBF3DC !important;color:#000 !important;border-color:#FBF3DC !important}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{background:#EBBC40 !important;color:#000 !important;border-color:#EBBC40 !important}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover{color:#CCCCCC !important;background:transparent !important;border-color:transparent !important;cursor:default !important}
 "
 
-spin <- function(x) withSpinner(x, type = 4, color = "#21918C", size = 0.7, proxy.height = "220px")
+spin <- function(x) withSpinner(x, type = 4, color = "#EBBC40", size = 0.7, proxy.height = "220px")
 
-light_plotly <- function(p) p %>% layout(font = list(family = "DM Sans", color = "#6B7A99", size = 12),
+light_plotly <- function(p) p %>% layout(font = list(family = "Lato", color = "#555555", size = 12),
   paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
-  xaxis = list(gridcolor = "#F1F4FA", tickfont = list(size = 11, color = "#9BA3B8"), title = ""),
-  yaxis = list(gridcolor = "#F1F4FA", tickfont = list(size = 11, color = "#9BA3B8")),
-  legend = list(font = list(size = 11, color = "#6B7A99")), margin = list(t = 10, b = 40, l = 48, r = 18)) %>% config(displayModeBar = FALSE)
+  xaxis = list(gridcolor = "#F0F0F0", tickfont = list(size = 11, color = "#8A8A8A"), title = ""),
+  yaxis = list(gridcolor = "#F0F0F0", tickfont = list(size = 11, color = "#8A8A8A")),
+  legend = list(font = list(size = 11, color = "#555555")), margin = list(t = 10, b = 40, l = 48, r = 18)) %>% config(displayModeBar = FALSE)
 
 scope_data <- function(d, year, scope) { yr <- d %>% filter(Year == year); if (scope != "All") yr <- yr %>% filter(Country == scope); yr }
 
@@ -211,16 +212,16 @@ build_map <- function(data, year_val, metric, scope_country, gap_label = GAP_NAM
   vals <- sfd[[metric]]; pal <- pal_for(metric, vals); bb <- as.numeric(st_bbox(sfd))
   leg_title <- if (metric == "Gap_Index") gap_label else METRICS[[metric]]$label
   labels <- lapply(seq_len(nrow(sfd)), function(i) { r <- sfd[i, ]; tc <- TIER_COLORS[r$Priority_Tier]
-    HTML(paste0("<div style='font-family:DM Sans;min-width:180px'><div style='font-size:15px;font-weight:700;color:#1A1F36'>", r$Admin1, "</div><div style='font-size:11px;color:#9BA3B8;margin-bottom:8px'>", r$Country, "</div><table style='font-size:12px;width:100%'>",
-      "<tr><td style='color:#9BA3B8'>", gap_label, "</td><td style='text-align:right;font-weight:600'>", sprintf("%.3f", r$Gap_Index), "</td></tr>",
-      "<tr><td style='color:#9BA3B8'>Malaria burden</td><td style='text-align:right;font-weight:600'>", sprintf("%.2f", r$Burden_Score), "</td></tr>",
-      "<tr><td style='color:#9BA3B8'>Response</td><td style='text-align:right;font-weight:600'>", sprintf("%.2f", r$Response_Score), "</td></tr>",
-      "<tr><td style='color:#9BA3B8'>Cases /1,000</td><td style='text-align:right;font-weight:600'>", sprintf("%.1f", r$Incidence_Rate), "</td></tr>",
-      "<tr><td style='color:#9BA3B8'>Infection rate</td><td style='text-align:right;font-weight:600'>", sprintf("%.1f%%", r$Infection_Prevalence), "</td></tr></table>",
+    HTML(paste0("<div style='font-family:Lato;min-width:180px'><div style='font-size:15px;font-weight:700;color:#212121'>", r$Admin1, "</div><div style='font-size:11px;color:#8A8A8A;margin-bottom:8px'>", r$Country, "</div><table style='font-size:12px;width:100%'>",
+      "<tr><td style='color:#8A8A8A'>", gap_label, "</td><td style='text-align:right;font-weight:600'>", sprintf("%.3f", r$Gap_Index), "</td></tr>",
+      "<tr><td style='color:#8A8A8A'>Malaria burden</td><td style='text-align:right;font-weight:600'>", sprintf("%.2f", r$Burden_Score), "</td></tr>",
+      "<tr><td style='color:#8A8A8A'>Response</td><td style='text-align:right;font-weight:600'>", sprintf("%.2f", r$Response_Score), "</td></tr>",
+      "<tr><td style='color:#8A8A8A'>Cases /1,000</td><td style='text-align:right;font-weight:600'>", sprintf("%.1f", r$Incidence_Rate), "</td></tr>",
+      "<tr><td style='color:#8A8A8A'>Infection rate</td><td style='text-align:right;font-weight:600'>", sprintf("%.1f%%", r$Infection_Prevalence), "</td></tr></table>",
       "<div style='margin-top:8px'><span style='font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;background:", tc, "22;color:", tc, "'>", r$Priority_Tier, "</span></div></div>")) })
   leaflet(sfd, options = leafletOptions(attributionControl = FALSE, minZoom = 3, maxZoom = 9)) %>% addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
     addPolygons(layerId = ~Admin1_ID, fillColor = ~pal(get(metric)), fillOpacity = .80, weight = 1, color = "#3A4A63", opacity = .9, smoothFactor = .8,
-      highlightOptions = highlightOptions(weight = 2.5, color = "#1F1A38", fillOpacity = .95, bringToFront = TRUE),
+      highlightOptions = highlightOptions(weight = 2.5, color = "#000000", fillOpacity = .95, bringToFront = TRUE),
       label = labels, labelOptions = labelOptions(style = list(padding = "0", background = "transparent", border = "none", "box-shadow" = "none"))) %>%
     addLegend(position = "bottomright", pal = pal, values = vals, title = leg_title, opacity = .9) %>% fitBounds(bb[1], bb[2], bb[3], bb[4])
 }
@@ -272,14 +273,14 @@ mobile_css <- "
   .levels .lv{min-width:calc(50% - 6px) !important;}
   .btn-export{margin-bottom:6px;}
 }
-.mobile-note{display:none; background:#EEF2FF; border:1px solid #D6E0FF; color:#3B5BDB; border-radius:10px; padding:10px 13px; font-size:13px; margin-bottom:14px; font-weight:500;}
+.mobile-note{display:none; background:#FBF3DC; border:1px solid #EBBC40; color:#000; border-radius:10px; padding:10px 13px; font-size:13px; margin-bottom:14px; font-weight:500;}
 "
 
 # ==========================================================
 # UI
 # ==========================================================
 ui <- dashboardPage(
-  dashboardHeader(title = tags$span(style = "font-family:'DM Serif Display',serif;font-size:15px;color:#fff;", "Malaria Response Gap")),
+  dashboardHeader(title = tags$span(style = "font-family:Lato,sans-serif;font-size:15px;color:#fff;", "Malaria Response Gap")),
   dashboardSidebar(tags$head(
       tags$title("Malaria Response Gap \u2014 Dashboard"),
       tags$link(rel = "icon", href = FAVICON),
@@ -333,7 +334,7 @@ ui <- dashboardPage(
             tags$span(class = "pt-help", `data-tip` = "Each point is an area. Points toward the lower-right have high burden with low response.", "?")),
           sliderInput("tr_year", NULL, min = min(all_years), max = max(all_years), value = max(all_years), step = 1, sep = "", width = "60%", animate = animationOptions(interval = 1300)),
           spin(plotlyOutput("scatter", height = 420)),
-          tags$p(style = "font-size:11.5px;color:#9BA3B8;margin-top:8px", "Right: higher burden. Up: stronger response. The shaded area (high burden, low response) marks the highest-priority combination; colour indicates priority level."))),
+          tags$p(style = "font-size:11.5px;color:#8A8A8A;margin-top:8px", "Right: higher burden. Up: stronger response. The shaded area (high burden, low response) marks the highest-priority combination; colour indicates priority level."))),
         column(5,
           div(class = "dash-panel", div(class = "panel-title", "Mean gap by country"), spin(plotlyOutput("country_traj", height = 250))),
           div(class = "dash-panel desktop-only", div(class = "panel-title", paste0("Largest changes since ", min(all_years)),
@@ -362,9 +363,9 @@ ui <- dashboardPage(
         div(class = "flow",
           div(class = "node", "High burden"), div(class = "op", "+"),
           div(class = "node", "low coverage"), div(class = "arrow", "\u2192"),
-          div(class = "node", style = "background:#1F1A38;color:#fff;border:none", "large gap"),
+          div(class = "node", style = "background:#000000;color:#fff;border:none", "large gap"),
           div(class = "arrow", "\u2192"), div(class = "node", "priority level")),
-        tags$p(style = "text-align:center;color:#9BA3B8;font-size:12.5px;margin-top:14px;margin-bottom:0",
+        tags$p(style = "text-align:center;color:#8A8A8A;font-size:12.5px;margin-top:14px;margin-bottom:0",
           "Where burden is low or coverage is already strong, the gap is small.")),
       div(class = "dash-panel anim",
         div(class = "panel-title", "Priority levels and gap ranges"),
@@ -373,7 +374,7 @@ ui <- dashboardPage(
           div(class = "lv", style = "background:#E3611C", tags$h5("High"), tags$div(class = "lv-range", sprintf("%.3f \u2013 %.3f", TIER_CUTS[2], TIER_CUTS[3])), tags$p("Substantial shortfall in coverage.")),
           div(class = "lv", style = "background:#D98A00", tags$h5("Moderate"), tags$div(class = "lv-range", sprintf("%.3f \u2013 %.3f", TIER_CUTS[1], TIER_CUTS[2])), tags$p("A noticeable gap.")),
           div(class = "lv", style = "background:#3E8E9C", tags$h5("Low"), tags$div(class = "lv-range", sprintf("0 \u2013 %.3f", TIER_CUTS[1])), tags$p("Response broadly matches burden."))),
-        tags$p(style = "color:#9BA3B8;font-size:12px;margin:14px 0 0", "Ranges are set from the spread of gap values across all areas (the highest 10% fall in Critical), so they reflect this dataset rather than fixed thresholds.")),
+        tags$p(style = "color:#8A8A8A;font-size:12px;margin:14px 0 0", "Ranges are set from the spread of gap values across all areas (the highest 10% fall in Critical), so they reflect this dataset rather than fixed thresholds.")),
       div(class = "dash-panel anim",
         div(class = "panel-title", "Definitions"),
         div(class = "glossary",
@@ -384,9 +385,9 @@ ui <- dashboardPage(
           div(class = "g", div(class = "k", "Gap"), div(class = "d", "How much of the burden the response isn't reaching")),
           div(class = "g", div(class = "k", "Priority"), div(class = "d", "Critical, High, Moderate or Low")))),
       div(class = "dash-panel anim", style = "display:flex;gap:13px;align-items:center",
-        div(class = "icirc", style = "background:#443983;flex:none", icon("database")),
-        div(tags$div(style = "font-weight:700;color:#1A1F36;font-size:14px", "Data source"),
-          tags$div(style = "color:#6B7A99;font-size:12.5px;margin-top:2px",
+        div(class = "icirc", style = "background:#000000;flex:none", icon("database")),
+        div(tags$div(style = "font-weight:700;color:#212121;font-size:14px", "Data source"),
+          tags$div(style = "color:#555555;font-size:12.5px;margin-top:2px",
             HTML(paste0("Malaria Atlas Project estimates, ", min(all_years), "\u2013", max(all_years), ", for ", length(countries), " countries and ", dplyr::n_distinct(df$Admin1_ID), " areas. Best estimates for setting priorities.")))))
     )
    ),
@@ -406,7 +407,7 @@ server <- function(input, output, session) {
   scoped <- reactive(scope_data(df, input$exp_year, input$exp_country))
 
   delta_html <- function(d, digits = 3) {
-    if (is.na(d) || d == 0) return("<span class='kpi-delta' style='color:#9BA3B8'>same as last year</span>")
+    if (is.na(d) || d == 0) return("<span class='kpi-delta' style='color:#8A8A8A'>same as last year</span>")
     worse <- d > 0; col <- if (worse) "#B10026" else "#2A9D8F"; arr <- if (worse) "\u25B2" else "\u25BC"
     sprintf("<span class='kpi-delta' style='color:%s'>%s %s vs last year</span>", col, arr, formatC(abs(d), format = "f", digits = digits))
   }
@@ -428,11 +429,11 @@ server <- function(input, output, session) {
     top <- lat %>% arrange(desc(Gap_Index)) %>% slice(1)
     div(class = "kpi-row anim",
       div(class = "kpi-card red", div(class = "kpi-icon", icon("fire")), div(class = "kpi-value", top$Admin1), div(class = "kpi-label", "Highest-gap area"),
-        HTML(sprintf("<span class='kpi-delta' style='color:#9BA3B8'>%s \u00b7 gap %.3f</span>", top$Country, top$Gap_Index))),
+        HTML(sprintf("<span class='kpi-delta' style='color:#8A8A8A'>%s \u00b7 gap %.3f</span>", top$Country, top$Gap_Index))),
       div(class = "kpi-card amber", div(class = "kpi-icon", icon("exclamation-triangle")), div(class = "kpi-value", critNow), div(class = "kpi-label", "High & critical areas"),
         HTML(delta_html(critNow - critPrev, 0))),
       div(class = "kpi-card blue", div(class = "kpi-icon", icon("layer-group")), div(class = "kpi-value", dplyr::n_distinct(df$Admin1_ID)), div(class = "kpi-label", "Administrative areas"),
-        HTML(sprintf("<span class='kpi-delta' style='color:#9BA3B8'>across %d countries</span>", length(countries)))),
+        HTML(sprintf("<span class='kpi-delta' style='color:#8A8A8A'>across %d countries</span>", length(countries)))),
       div(class = "kpi-card green", div(class = "kpi-icon", icon("chart-line")), div(class = "kpi-value", sprintf("%.3f", meanNow)), div(class = "kpi-label", "Mean gap"),
         HTML(delta_html(meanNow - meanPrev, 3)))) })
 
@@ -515,7 +516,7 @@ server <- function(input, output, session) {
     ser <- df %>% arrange(Year) %>% group_by(Admin1_ID) %>% summarise(v = list(round(Gap_Index, 3)), .groups = "drop")
     dyr <- df %>% filter(Year == input$rank_year) %>% arrange(desc(Gap_Index)) %>% left_join(ser, by = "Admin1_ID")
     dyr$Trend <- vapply(dyr$v, function(v) spk_chr(v, type = "line", width = 74, height = 22,
-      lineColor = "#21918C", fillColor = "#E4F3F1", lineWidth = 1.6, spotRadius = 2,
+      lineColor = "#EBBC40", fillColor = "#FBF3DC", lineWidth = 1.6, spotRadius = 2,
       spotColor = "#B10026", minSpotColor = "", maxSpotColor = "#B10026"), character(1))
     tbl <- dyr %>% mutate(Priority_Tier = paste0('<span class="tier-badge tier-', Priority_Tier, '">', Priority_Tier, '</span>')) %>%
       select(Country, Admin1, Gap_Index, Trend, Priority_Tier, Burden_Score, Response_Score, Incidence_Rate, Infection_Prevalence) %>%
